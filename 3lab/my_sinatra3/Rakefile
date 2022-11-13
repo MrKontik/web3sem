@@ -1,0 +1,14 @@
+require 'sinatra'
+require 'D:/Studies/2 course/WEB/3lab/my_sinatra3/lib/task/db'
+
+namespace :db do
+  task :environment do
+    require 'sequel'
+    ENV['DATABASE_URL']  ||=
+      'postgres://postgres:1234@localhost/sinatra_seq'
+    ENV['RACK_ENV'] ||= 'development'
+    ENV['DATABASE'] = 'api_hh_development' if ENV['RACK_ENV'] == 'development'
+    ENV['DATABASE'] = 'api_hh_test' if ENV['RACK_ENV'] == 'test'
+    ENV['DATABASE'] = 'api_hh_production' if ENV['RACK_ENV'] == 'production'
+  end
+end
