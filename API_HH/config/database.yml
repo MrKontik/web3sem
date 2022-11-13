@@ -1,0 +1,39 @@
+
+
+development:
+  encoding: unicode
+  host: localhost
+  adapter: postgresql
+  username: postgres
+  #  encoding: UTF8
+  timeout: 5000
+  port: 5432
+  reaping_frequency: 30
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  database: api_hh_development
+  password: <%= Rails.application.secrets[:database][:password] %>
+
+test:
+  encoding: unicode
+  host: localhost
+  adapter: postgresql
+  username: postgres
+  #  encoding: UTF8
+  timeout: 5000
+  port: 5432
+  reaping_frequency: 30
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  database: api_hh_test
+  password: <%= Rails.application.secrets[:database][:password] %>
+
+production:
+  encoding: unicode
+  host: localhost
+  adapter: postgresql
+  username: postgres
+  #  encoding: UTF8
+  timeout: 5000
+  reaping_frequency: 30
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  database: api_hh_production
+  password: <%= ENV['API_RAILS_PG_DATABASE_PASSWORD'] %>
