@@ -1,0 +1,3 @@
+ENV['DATABASE'] = 'api_hh_development' if ENV['RACK_ENV'] == 'development'
+ENV['DATABASE'] = 'api_hh_test' if ENV['RACK_ENV'] == 'test'
+ENV['DATABASE'] = 'api_hh_production' if ENV['RACK_ENV'] == 'production'
